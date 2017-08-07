@@ -1,4 +1,4 @@
-# i2x coding challenge
+# i2x coding challenge (My first React app)
 
 Simple React web app with Login and List view page
 

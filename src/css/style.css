@@ -7,6 +7,6 @@ body {
     margin: 30px;
     margin-bottom: 20px;
 }
-.audio-item div {
+.audio-item div:not(:last-of-type) {
     margin-bottom: 20px;
 }

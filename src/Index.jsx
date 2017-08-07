@@ -6,8 +6,10 @@ import {Login} from './Login.jsx';
 class Index extends React.Component{
 
     render(){
-        const token = localStorage.getItem("i2xToken6");
 
+        const token = localStorage.getItem("i2xToken");
+
+        //If token available then go to Dashboard
         if(token) {
             return (
                 <div>
@@ -15,6 +17,7 @@ class Index extends React.Component{
                 </div>
             );
         }
+        // Else go to Login
         else{
             return (
                 <div>

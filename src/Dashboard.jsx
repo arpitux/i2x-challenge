@@ -1,10 +1,11 @@
 import React from 'react';
 import Axios from 'axios';
 import Moment from 'moment';
+import HumanizeDuration from 'humanize-duration';
 
 var instance = Axios.create({
     baseURL: 'https://i2x-challenge.herokuapp.com',
-    timeout: 5000
+    timeout: 10000
 });
 
 
@@ -18,20 +19,30 @@ export class Dashboard extends React.Component {
 
     componentDidMount() {
 
+        // Get Audio data
         instance.get('/ai/recording/list/', {
-            headers: { 'Authorization': 'JWT ' + localStorage.getItem("i2xToken6") }
+            headers: { 'Authorization': 'JWT ' + localStorage.getItem("i2xToken") }
         }).then(res => {
 
             const audios = res.data.results;
             console.dir(audios);
             this.setState({ audios });
+
+        }).catch(function(error){
+
+            //If API calls fails go to login
+            document.getElementById("btn-logout").click();
+
         });
 
     }
 
     logoutClick() {
 
-        localStorage.removeItem("i2xToken6");
+        //Delete token from local storage
+        localStorage.removeItem("i2xToken");
+
+        //Reload page to got to login
         window.location.reload();
     }
 
@@ -39,7 +50,7 @@ export class Dashboard extends React.Component {
 
         return(
             <div>
-                <button type="button" onClick={this.logoutClick}>Logout</button>
+                <button id="btn-logout" type="button" onClick={this.logoutClick}>Logout</button>
 
 
                     {this.state.audios.length ?
@@ -62,7 +73,7 @@ export class Dashboard extends React.Component {
                                 </div>
 
 
-                                <div>Duration: {Moment.duration(audio.duration,'seconds').humanize()}</div>
+                                <div>Duration: {HumanizeDuration(audio.duration * 1000)}</div>
 
                                 <div>
                                     <audio width="320" height="240" controls>

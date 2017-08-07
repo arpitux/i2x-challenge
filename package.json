@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "dev": "cp src/css/style.css dist/ | cp src/index.html dist/ | webpack -d --watch",
+    "build": "cp src/css/style.css dist/ | cp src/index.html dist/ | webpack -p"
   },
   "author": "Arpit Jain <arpitj.ux@gmail.com> (http://arpitjain.me)",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "humanize-duration": "^3.10.1",
     "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -24,5 +25,5 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:arpitux/i2x-challenge"
-  },
+  }
 }

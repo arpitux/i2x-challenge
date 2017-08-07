@@ -19,21 +19,28 @@ export class Login extends React.Component {
 
     login(e) {
 
+        // Call authentication API
+
         instance.post('/core/login/', {
             email: this.state.email,
             password: this.state.password
         }).then(function(response){
 
-            if(response.data.token){
-                localStorage.setItem("i2xToken6", response.data.token);
+            //User is authenticated
 
+            if(response.data.token){
+
+                //Save user's authorization token to localstorage
+                localStorage.setItem("i2xToken", response.data.token);
+
+                //Reload page to go to Dashboard
                 window.location.reload();
             }
             else {
-                alert("User is not valid");
+                alert("Something went wrong. Please try again.");
             }
         }).catch(function (error) {
-            alert('error');
+            alert("Invalid Credentials. Please try again.");
         });
 
 

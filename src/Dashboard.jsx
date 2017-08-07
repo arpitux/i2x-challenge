@@ -1,6 +1,5 @@
 import React from 'react';
 import Axios from 'axios';
-import Moment from 'moment';
 import HumanizeDuration from 'humanize-duration';
 
 var instance = Axios.create({
@@ -31,7 +30,7 @@ export class Dashboard extends React.Component {
         }).catch(function(error){
 
             //If API calls fails go to login
-            document.getElementById("btn-logout").click();
+          //  document.getElementById("btn-logout").click();
 
         });
 
@@ -44,6 +43,23 @@ export class Dashboard extends React.Component {
 
         //Reload page to got to login
         window.location.reload();
+    }
+
+    formatDate(audiodate) {
+        var date = new Date(audiodate);
+        var year = date.getFullYear(),
+            month = date.getMonth() + 1, // months are zero indexed
+            day = date.getDate(),
+            hour = date.getHours(),
+            minute = date.getMinutes(),
+            second = date.getSeconds(),
+            hourFormatted = hour % 12 || 12, // hour returned in 24 hour format
+            minuteFormatted = minute < 10 ? "0" + minute : minute,
+            morning = hour < 12 ? "am" : "pm";
+
+        debugger;
+        return month + "/" + day + "/" + year + " " + hourFormatted + ":" +
+            minuteFormatted + morning;
     }
 
     render() {
@@ -80,7 +96,7 @@ export class Dashboard extends React.Component {
                                         <source src={audio.url} type="video/mp4" />
                                     </audio>
                                 </div>
-                                <div>{Moment(audio.created).format("LLLL")}</div>
+                                <div>{this.formatDate(audio.created)}</div>
 
                             </div>
 

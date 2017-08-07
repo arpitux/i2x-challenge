@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cp src/css/style.css dist/ | cp src/index.html dist/ | webpack -d --watch",
-    "build": "cp src/css/style.css dist/ | cp src/index.html dist/ | webpack -p"
+    "dev": "cp src/image/star_gray.png dist/ | cp src/image/star_yellow.png dist/ | cp src/css/style.css dist/ | cp src/index.html dist/ | webpack -d --watch",
+    "build": "cp src/image/star_gray.png dist/ | cp src/image/star_yellow.png dist/ | cp src/css/style.css dist/ | cp src/index.html dist/ | webpack -p"
   },
   "author": "Arpit Jain <arpitj.ux@gmail.com> (http://arpitjain.me)",
   "license": "ISC",

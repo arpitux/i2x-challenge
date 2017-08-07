@@ -62,12 +62,12 @@ export class Dashboard extends React.Component {
                                 <div>
                                 {Array.apply(null, Array(audio.rating)).map(function(item, i){
                                     return (
-                                        <img src="image/star_yellow.png" height="20" width="20"/>
+                                        <img src="star_yellow.png" height="20" width="20"/>
                                     );
                                 }, this)}
                                 {Array.apply(null, Array(5 - audio.rating)).map(function(item, i){
                                     return (
-                                        <img src="image/star_gray.png" height="20" width="20"/>
+                                        <img src="star_gray.png" height="20" width="20"/>
                                     );
                                 }, this)}
                                 </div>

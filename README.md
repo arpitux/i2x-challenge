@@ -2,6 +2,10 @@
 
 Simple React web app with Login and List view page
 
+### Demo
+
+[Demo on Heroku](https://arpit-i2x-challenge.herokuapp.com/dist/index.html)
+
 ### Prerequisites
 
 `node` and `npm` should be installed on your local machine

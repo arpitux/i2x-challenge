@@ -6,7 +6,12 @@ Simple React web app with Login and List view page
 
 `node` and `npm` should be installed on your local machine
 
-### Installing
+### Running App
+
+1. Download repository
+2. Open `dist/index.html`
+
+### Development
 
 1. From the root directory run following commands from terminal
 

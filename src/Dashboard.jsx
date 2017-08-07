@@ -59,7 +59,7 @@ export class Dashboard extends React.Component {
 
         debugger;
         return month + "/" + day + "/" + year + " " + hourFormatted + ":" +
-            minuteFormatted + morning;
+            minuteFormatted + " " + morning;
     }
 
     render() {
